@@ -15,11 +15,12 @@
     <Grid>
         <TabControl Style="{StaticResource MaterialDesignTabControl}">
             <TabItem Header="Console">
-                <Grid Height="559" Margin="0,0,0,0">
+                <Grid>
                     <GroupBox Header="Server Management" 
-                              Margin="10,5,10,190">
+                              Margin="10,10,10,0" Height="386" VerticalAlignment="Top">
                         <Grid>
-                            <DataGrid Margin="0,0,816,0" BorderThickness="1,1,1,1">
+                            <DataGrid Margin="0,0,816,0" 
+                                      BorderThickness="1,1,1,1">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Players"/>
                                 </DataGrid.Columns>
@@ -42,15 +43,94 @@
                     <GroupBox Header="Quick Actions" 
                               Margin="10,374,835,10">
                         <Grid>
-                            <Button Content="Start" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-                            <Button Content="Restart" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-                            <Button Content="Run Task" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+                            <Button Content="Start" 
+                                    HorizontalAlignment="Stretch" 
+                                    VerticalAlignment="Top"/>
+                            <Button Content="Restart" 
+                                    HorizontalAlignment="Stretch" 
+                                    VerticalAlignment="Center"/>
+                            <Button Content="Run Task" 
+                                    HorizontalAlignment="Stretch" 
+                                    VerticalAlignment="Bottom"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Players"></TabItem>
-            <TabItem Header="Starter"></TabItem>
+            <TabItem Header="Players">
+                <DataGrid BorderThickness="1,1,1,1" 
+                          Margin="10,10,10,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name"/>
+                        <DataGridTextColumn Header="Display Name"/>
+                        <DataGridTextColumn Header="IP Address"/>
+                        <DataGridTextColumn Header="Time"/>
+                        <DataGridTextColumn Header="Location"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Starter">
+                <Grid>
+                    <GroupBox Header="Server Specific Settings" 
+                              Margin="10,361,360,10"/>
+                    <GroupBox Header="Server details" 
+                              Margin="630,10,10,10"/>
+                    <GroupBox Header="Server" 
+                              Margin="10,10,360,210">
+                        <Grid>
+                            <Slider Margin="0,266,10,10" 
+                                    VerticalAlignment="Top" 
+                                    Width="120"/>
+                            <Slider Margin="226,94,10,0" 
+                                    VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" 
+                                     Margin="157,66,0,0" 
+                                     Text="TextBox" 
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top" 
+                                     Width="394"/>
+                            <TextBox HorizontalAlignment="Left" 
+                                     Margin="186,210,0,0" 
+                                     Text="TextBox" 
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top" 
+                                     Width="120"/>
+                            <Button Content="..." 
+                                    Margin="556,66,10,0" 
+                                    VerticalAlignment="Top" 
+                                    Height="23"/>
+                            <Button Content="Button" 
+                                    HorizontalAlignment="Left" 
+                                    Margin="469,158,0,0" 
+                                    VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" 
+                                     Margin="446,232,0,0" 
+                                     Text="TextBox" 
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top" 
+                                     Width="120"/>
+                            <ComboBox Margin="157,10,10,0" 
+                                      VerticalAlignment="Top">
+                                <ComboBoxItem Content="Vanilla"/>
+                            </ComboBox>
+                            <ComboBox Margin="157,38,10,0" 
+                                      VerticalAlignment="Top"/>
+                            <Label Content="Server Type:" 
+                                   HorizontalAlignment="Left" 
+                                   Margin="79,10,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <Label Content="Java Version:" 
+                                HorizontalAlignment="Left" 
+                                Margin="72,39,0,0" 
+                                VerticalAlignment="Top"/>
+                            <Label Content="Jar File:" 
+                                HorizontalAlignment="Left" 
+                                Margin="102,68,0,0" 
+                                VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
             <TabItem Header="Issues"></TabItem>
             <TabItem Header="Tasker"></TabItem>
             <TabItem Header="Plugins"></TabItem>
