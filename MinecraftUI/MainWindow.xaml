@@ -11,40 +11,36 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" MaxWidth="1000" MaxHeight="650" ScrollViewer.VerticalScrollBarVisibility="Disabled" WindowStyle="SingleBorderWindow" MinHeight="650" MinWidth="1000">
+        FontFamily="{DynamicResource MaterialDesignFont}" ScrollViewer.VerticalScrollBarVisibility="Disabled" WindowStyle="SingleBorderWindow" Width="1000" Height="650" MinWidth="1000" MinHeight="650">
     <Grid>
         <TabControl Style="{StaticResource MaterialDesignTabControl}">
             <TabItem Header="Console">
                 <Grid>
-                    <GroupBox Header="Server Management" 
-                              Margin="10,10,10,0" Height="386" VerticalAlignment="Top">
+                    <GroupBox Header="Server Management" Margin="10,10,10,190">
                         <Grid>
-                            <DataGrid Margin="0,0,816,0" 
-                                      BorderThickness="1,1,1,1">
+                            <DataGrid BorderThickness="1,1,1,1" 
+                                      HorizontalAlignment="Left" 
+                                      Width="146">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Players"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <TextBox 
-                                     TextWrapping="Wrap" 
-                                     Margin="136,287,0,0"/>
-                            <RichTextBox Margin="136,0,0,32">
+                            <TextBox TextWrapping="Wrap" 
+                                     Height="22" 
+                                     Margin="151,0,0,5" 
+                                     VerticalAlignment="Bottom"/>
+                            <RichTextBox Margin="151,0,0,32" BorderThickness="0,0,0,1" IsReadOnly="True">
                                 <FlowDocument>
-                                    <Paragraph>
-                                        <Run Text="RichTextBox"/>
-                                    </Paragraph>
                                 </FlowDocument>
                             </RichTextBox>
                         </Grid>
-
                     </GroupBox>
-                    <GroupBox Header="Performance" 
-                              Margin="155,374,10,10"/>
                     <GroupBox Header="Quick Actions" 
-                              Margin="10,374,835,10">
+                              Margin="10,0,0,10"
+                              Height="175"
+                              Width="155" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                         <Grid>
                             <Button Content="Start" 
-                                    HorizontalAlignment="Stretch" 
                                     VerticalAlignment="Top"/>
                             <Button Content="Restart" 
                                     HorizontalAlignment="Stretch" 
@@ -54,6 +50,8 @@
                                     VerticalAlignment="Bottom"/>
                         </Grid>
                     </GroupBox>
+                    <GroupBox Header="Performance"
+                              Height="175" VerticalAlignment="Bottom" Margin="170,0,10,10"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Players">
