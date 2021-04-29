@@ -11,7 +11,13 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" ScrollViewer.VerticalScrollBarVisibility="Disabled" WindowStyle="SingleBorderWindow" Width="1000" Height="650" MinWidth="1000" MinHeight="650">
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+        WindowStyle="SingleBorderWindow" 
+        Width="1000" 
+        Height="650" 
+        MinWidth="1000" 
+        MinHeight="650">
     <Grid>
         <TabControl Style="{StaticResource MaterialDesignTabControl}">
             <TabItem Header="Console">
@@ -29,7 +35,9 @@
                                      Height="22" 
                                      Margin="151,0,0,5" 
                                      VerticalAlignment="Bottom"/>
-                            <RichTextBox Margin="151,0,0,32" BorderThickness="0,0,0,1" IsReadOnly="True">
+                            <RichTextBox Margin="151,0,0,32" 
+                                         BorderThickness="0,0,0,1" 
+                                         IsReadOnly="True">
                                 <FlowDocument>
                                 </FlowDocument>
                             </RichTextBox>
@@ -38,7 +46,9 @@
                     <GroupBox Header="Quick Actions" 
                               Margin="10,0,0,10"
                               Height="175"
-                              Width="155" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                              Width="155" 
+                              VerticalAlignment="Bottom" 
+                              HorizontalAlignment="Left">
                         <Grid>
                             <Button Content="Start" 
                                     VerticalAlignment="Top"/>
@@ -51,7 +61,35 @@
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Performance"
-                              Height="175" VerticalAlignment="Bottom" Margin="170,0,10,10"/>
+                              Height="175" 
+                              VerticalAlignment="Bottom" 
+                              Margin="170,0,10,10">
+                        <Grid>
+                            <ProgressBar Height="10" Margin="431,78,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <ProgressBar Height="10" Margin="168,33,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <ProgressBar Height="10" Margin="431,56,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <ProgressBar Height="10" Margin="431,33,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <ProgressBar Height="10" Margin="168,78,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <ProgressBar Height="10" Margin="168,56,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
+                            <Label Content="CPU Usage" HorizontalAlignment="Left" Margin="463,10,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Total:" HorizontalAlignment="Left" Margin="286,72,0,0" VerticalAlignment="Top"/>
+                            <Label Content="RAM Usage" HorizontalAlignment="Left" Margin="198,8,0,0" VerticalAlignment="Top"/>
+                            <Label Content="00:00:00" HorizontalAlignment="Left" Margin="107,92,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Uptime:" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
+                            <Label Content="16000 (100%)" HorizontalAlignment="Left" Margin="79,72,0,0" VerticalAlignment="Top"/>
+                            <Label Content="16000 (100%)" HorizontalAlignment="Left" Margin="79,50,0,0" VerticalAlignment="Top"/>
+                            <Label Content="16000 (100%)" HorizontalAlignment="Left" Margin="79,27,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Total:" HorizontalAlignment="Left" Margin="21,72,0,0" VerticalAlignment="Top"/>
+                            <Label Content="GUI:" HorizontalAlignment="Left" Margin="29,50,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Server:" HorizontalAlignment="Left" Margin="14,27,0,0" VerticalAlignment="Top"/>
+                            <Label Content="100%" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top"/>
+                            <Label Content="100%" HorizontalAlignment="Left" Margin="385,50,0,0" VerticalAlignment="Top"/>
+                            <Label Content="100%" HorizontalAlignment="Left" Margin="385,27,0,0" VerticalAlignment="Top"/>
+                            <Label Content="GUI:" HorizontalAlignment="Left" Margin="294,50,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Server:" HorizontalAlignment="Left" Margin="279,27,0,0" VerticalAlignment="Top"/>
+
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Players">
@@ -68,76 +106,356 @@
             </TabItem>
             <TabItem Header="Starter">
                 <Grid>
-                    <GroupBox Header="Server Specific Settings" 
-                              Margin="10,361,360,10"/>
-                    <GroupBox Header="Server details" 
-                              Margin="630,10,10,10"/>
                     <GroupBox Header="Server" 
-                              Margin="10,10,360,210">
+                              Margin="10,10,0,0" 
+                              Height="283" 
+                              VerticalAlignment="Top" 
+                              HorizontalAlignment="Left" 
+                              Width="745">
                         <Grid>
-                            <Slider Margin="0,266,10,10" 
-                                    VerticalAlignment="Top" 
-                                    Width="120"/>
-                            <Slider Margin="226,94,10,0" 
+                            <Slider Margin="216,117,10,0" 
                                     VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" 
-                                     Margin="157,66,0,0" 
-                                     Text="TextBox" 
+                            <Slider Margin="216,94,10,0" 
+                                    VerticalAlignment="Top"/>
+                            <TextBox Margin="141,65,61,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
-                                     Width="394"/>
-                            <TextBox HorizontalAlignment="Left" 
-                                     Margin="186,210,0,0" 
-                                     Text="TextBox" 
+                                     Height="22"/>
+                            <TextBox Margin="141,140,10,0"
                                      TextWrapping="Wrap" 
-                                     VerticalAlignment="Top" 
-                                     Width="120"/>
+                                     VerticalAlignment="Top"/>
                             <Button Content="..." 
-                                    Margin="556,66,10,0" 
+                                    Margin="0,66,10,0" 
                                     VerticalAlignment="Top" 
-                                    Height="23"/>
-                            <Button Content="Button" 
-                                    HorizontalAlignment="Left" 
-                                    Margin="469,158,0,0" 
+                                    Height="23" 
+                                    HorizontalAlignment="Right" 
+                                    Width="46"/>
+                            <Button Content="Launch Server" 
+                                    Margin="141,196,10,0" 
+                                    Height="32" 
                                     VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" 
-                                     Margin="446,232,0,0" 
-                                     Text="TextBox" 
-                                     TextWrapping="Wrap" 
-                                     VerticalAlignment="Top" 
-                                     Width="120"/>
-                            <ComboBox Margin="157,10,10,0" 
-                                      VerticalAlignment="Top">
+                            <ComboBox Margin="141,11,10,0" 
+                                      VerticalAlignment="Top" 
+                                      Height="22">
                                 <ComboBoxItem Content="Vanilla"/>
                             </ComboBox>
-                            <ComboBox Margin="157,38,10,0" 
-                                      VerticalAlignment="Top"/>
+                            <ComboBox Margin="141,38,10,0" 
+                                      VerticalAlignment="Top" 
+                                      Height="22"/>
                             <Label Content="Server Type:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="79,10,0,0" 
+                                   Margin="56,12,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Java Version:" 
-                                HorizontalAlignment="Left" 
-                                Margin="72,39,0,0" 
-                                VerticalAlignment="Top"/>
+                                   HorizontalAlignment="Left" 
+                                   Margin="50,39,0,0" 
+                                   VerticalAlignment="Top"/>
                             <Label Content="Jar File:" 
-                                HorizontalAlignment="Left" 
-                                Margin="102,68,0,0" 
-                                VerticalAlignment="Top"/>
+                                   HorizontalAlignment="Left" 
+                                   Margin="79,66,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <Label Content="Minimum Ram [MB]:" 
+                                   HorizontalAlignment="Left" 
+                                   Margin="13,92,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <Label Content="Maximum Ram [MB]:" 
+                                   HorizontalAlignment="Left" 
+                                   Margin="10,115,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <Label Content="Optional Arguments:" 
+                                   HorizontalAlignment="Left" 
+                                   Margin="10,141,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <Label Content="Optional Flags:" 
+                                   HorizontalAlignment="Left" 
+                                   Margin="39,168,0,0" 
+                                   VerticalAlignment="Top"/>
+                            <TextBox Margin="141,168,10,0"
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top"/>
+                            <TextBox Margin="141,92,0,0"
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top" 
+                                     Height="22" 
+                                     HorizontalAlignment="Left" 
+                                     Width="70"/>
+                            <TextBox Margin="141,114,0,0"
+                                     TextWrapping="Wrap" 
+                                     VerticalAlignment="Top" 
+                                     Height="22" 
+                                     HorizontalAlignment="Left" 
+                                     Width="70"/>
                         </Grid>
                     </GroupBox>
-
+                    <GroupBox Header="Server Specific Settings" 
+                              Margin="10,298,0,10" 
+                              HorizontalAlignment="Left" 
+                              Width="745" Height="278" VerticalAlignment="Top"/>
+                    <GroupBox Header="Server details" 
+                              Margin="760,10,10,10" 
+                              Height="566" 
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="230"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Issues"></TabItem>
-            <TabItem Header="Tasker"></TabItem>
-            <TabItem Header="Plugins"></TabItem>
-            <TabItem Header="Editor"></TabItem>
-            <TabItem Header="Backup"></TabItem>
-            <TabItem Header="Settings"></TabItem>
+            <TabItem Header="Issues">
+                <Grid>
+                    <DataGrid BorderThickness="1,1,1,1" Margin="10,10,10,47">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID"/>
+                            <DataGridTextColumn Header="Type"/>
+                            <DataGridTextColumn Header="Time"/>
+                            <DataGridTextColumn Header="Message"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Lookup" 
+                            Width="100" 
+                            Margin="0,0,115,10" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right"/>
+                    <Button Content="Copy" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,10,10" 
+                            Width="100" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0.223"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tasker">
+                <Grid>
+                    <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"/>
+                            <DataGridTextColumn Header="Trigger"/>
+                            <DataGridTextColumn Header="Trigger Settings"/>
+                            <DataGridTextColumn Header="Action"/>
+                            <DataGridTextColumn Header="Action Settings"/>
+                            <DataGridTextColumn Header="Enabled"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Test" 
+                            Width="100" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,317,10"/>
+                    <Button Content="Edit"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,212,10"/>
+                    <Button Content="Delete"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,107,10"/>
+                    <Button Content="New Task" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,10,10"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Plugins">
+                <Grid>
+                    <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"/>
+                            <DataGridTextColumn Header="Description"/>
+                            <DataGridTextColumn Header="Author(s)"/>
+                            <DataGridTextColumn Header="Version"/>
+                            <DataGridTextColumn Header="Latest Version"/>
+                            <DataGridTextColumn Header="Installed"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Open Folder" 
+                            Width="110" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,325,10"/>
+                    <Button Content="Update"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,220,10"/>
+                    <Button Content="Versions"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,115,10"/>
+                    <Button Content="Remove" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,10,10" 
+                            Width="100"/>
+                </Grid>
 
+            </TabItem>
+            <TabItem Header="Editor">
+                <TabControl>
+                    <TabItem Header="Server Settings">
+                        <Grid>
+                            <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Setting"/>
+                                    <DataGridTextColumn Header="Value"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Add" 
+                            Width="100" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,325,10"/>
+                            <Button Content="Edit"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,220,10"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Whitelist">
+                        <Grid>
+                            <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"/>
+                                    <DataGridTextColumn Header="UUID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Remove" 
+                            Width="100" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,325,10"/>
+                            <Button Content="Add"
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,220,10"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Operator">
+                        <Grid>
+                            <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"/>
+                                    <DataGridTextColumn Header="UUID"/>
+                                    <DataGridTextColumn Header="Level"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Refresh"
+                                    Width="100" 
+                                    VerticalAlignment="Bottom" 
+                                    HorizontalAlignment="Right" 
+                                    Margin="0,0,325,10"/>
+                            <Button Content="Remove"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,220,10"/>
+                            <Button Content="Add"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,115,10"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Banned Players">
+                        <Grid>
+                            <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"/>
+                                    <DataGridTextColumn Header="UUID"/>
+                                    <DataGridTextColumn Header="Created"/>
+                                    <DataGridTextColumn Header="Source"/>
+                                    <DataGridTextColumn Header="Expires"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Remove"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,220,10"/>
+                            <Button Content="Add"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,115,10"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Banned IPs">
+                        <Grid>
+                            <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="IP"/>
+                                    <DataGridTextColumn Header="Created"/>
+                                    <DataGridTextColumn Header="Source"/>
+                                    <DataGridTextColumn Header="Expires"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Remove"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,220,10"/>
+                            <Button Content="Add"
+                                    Width="100" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,115,10"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Config Editor">
 
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Backup">
+                <Grid>
+                    <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"/>
+                            <DataGridTextColumn Header="Folders"/>
+                            <DataGridTextColumn Header="Destination"/>
+                            <DataGridTextColumn Header="Compression"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Execute" 
+                            Width="100" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,325,10"/>
+                    <Button Content="Add..."
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,220,10"/>
+                    <Button Content="Edit..."
+                            Width="100" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,115,10"/>
+                    <Button Content="Remove" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,10,10" Width="100"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings">
 
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
