@@ -107,37 +107,36 @@
             <TabItem Header="Starter">
                 <Grid>
                     <GroupBox Header="Server" 
-                              Margin="10,10,0,0" 
-                              Height="283" 
-                              VerticalAlignment="Top" 
-                              HorizontalAlignment="Left" 
-                              Width="745">
+                              Height="346" 
+                              VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="615">
                         <Grid>
-                            <Slider Margin="216,117,10,0" 
+                            <Slider x:Name="Starter_MaxRamSlider" Margin="216,117,10,0" 
                                     VerticalAlignment="Top"/>
-                            <Slider Margin="216,94,10,0" 
+                            <Slider x:Name="Starter_MinRamSlider" Margin="216,94,10,0" 
                                     VerticalAlignment="Top"/>
-                            <TextBox Margin="141,65,61,0"
+                            <TextBox x:Name="Starter_JarFileText" Margin="141,65,61,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
-                                     Height="22"/>
-                            <TextBox Margin="141,140,10,0"
+                                     Height="25"/>
+                            <TextBox x:Name="Starter_OptionalArgsText" Margin="141,140,10,0"
                                      TextWrapping="Wrap" 
-                                     VerticalAlignment="Top"/>
+                                     VerticalAlignment="Top" Height="25"/>
                             <Button Content="..." 
                                     Margin="0,66,10,0" 
                                     VerticalAlignment="Top" 
                                     Height="23" 
                                     HorizontalAlignment="Right" 
-                                    Width="46"/>
-                            <Button Content="Launch Server" 
-                                    Margin="141,196,10,0" 
+                                    Width="46"
+                                    x:Name="Starter_JarFileBrowseBtn" Click="Starter_BrowseJarFileBtn_Click"/>
+                            <Button x:Name="Starter_LaunchServerBtn" Content="Launch Server" 
+                                    Margin="141,198,10,0" 
                                     Height="32" 
                                     VerticalAlignment="Top"/>
                             <ComboBox Margin="141,11,10,0" 
                                       VerticalAlignment="Top" 
                                       Height="22">
                                 <ComboBoxItem Content="Vanilla"/>
+                                <ComboBoxItem Content="Spigot"/>
                             </ComboBox>
                             <ComboBox Margin="141,38,10,0" 
                                       VerticalAlignment="Top" 
@@ -170,16 +169,16 @@
                                    HorizontalAlignment="Left" 
                                    Margin="39,168,0,0" 
                                    VerticalAlignment="Top"/>
-                            <TextBox Margin="141,168,10,0"
+                            <TextBox x:Name="Starter_OptionalFlagsText" Margin="141,168,10,0"
                                      TextWrapping="Wrap" 
-                                     VerticalAlignment="Top"/>
-                            <TextBox Margin="141,92,0,0"
+                                     VerticalAlignment="Top" Height="25"/>
+                            <TextBox x:Name="Starter_MinRamText" Margin="141,92,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="22" 
                                      HorizontalAlignment="Left" 
                                      Width="70"/>
-                            <TextBox Margin="141,114,0,0"
+                            <TextBox x:Name="Starter_MaxRamText" Margin="141,114,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="22" 
@@ -187,14 +186,23 @@
                                      Width="70"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Server Specific Settings" 
-                              Margin="10,298,0,10" 
-                              HorizontalAlignment="Left" 
-                              Width="745" Height="278" VerticalAlignment="Top"/>
-                    <GroupBox Header="Server details" 
-                              Margin="760,10,10,10" 
-                              Height="566" 
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="230"/>
+                    <GroupBox Header="Server Details" 
+                              Margin="630,10,10,0" Height="346" VerticalAlignment="Top">
+                        <Grid>
+                            <Image Margin="10,10,0,0" 
+                                   Width="150" 
+                                   HorizontalAlignment="Left" Height="150" VerticalAlignment="Top"/>
+                            <Label Content="Latest Recomended Build:" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top"/>
+                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,37,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Latest Beta Build:" HorizontalAlignment="Left" Margin="171,64,0,0" VerticalAlignment="Top"/>
+                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,91,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Latest Development Build:" HorizontalAlignment="Left" Margin="171,118,0,0" VerticalAlignment="Top"/>
+                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,145,0,0" VerticalAlignment="Top"/>
+                            <Button Content="Download Latest Recomended Build" Margin="10,180,10,0" VerticalAlignment="Top"/>
+                            <Button Content="Download Latest Beta Build" Margin="10,217,10,0" VerticalAlignment="Top"/>
+                            <Button Content="Download Latest Developement Build" Margin="10,254,10,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Issues">
@@ -208,24 +216,15 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Lookup" 
-                            Width="100" 
-                            Margin="0,0,115,10" 
+                            Width="110" 
+                            Margin="0,0,125,10" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Right"/>
                     <Button Content="Copy" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Right" 
                             Margin="0,0,10,10" 
-                            Width="100" RenderTransformOrigin="0.5,0.5">
-                        <Button.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.223"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Button.RenderTransform>
-                    </Button>
+                            Width="110"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tasker">
@@ -242,24 +241,24 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Test" 
-                            Width="100" 
+                            Width="110" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Right" 
-                            Margin="0,0,317,10"/>
+                            Margin="0,0,355,10"/>
                     <Button Content="Edit"
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,212,10"/>
+                            Margin="0,0,240,10"/>
                     <Button Content="Delete"
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,107,10"/>
+                            Margin="0,0,125,10"/>
                     <Button Content="New Task" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,10,10"/>
+                            Margin="0,0,10,10" Width="110"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Plugins">
@@ -279,22 +278,22 @@
                             Width="110" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Right" 
-                            Margin="0,0,325,10"/>
+                            Margin="0,0,355,10"/>
                     <Button Content="Update"
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,220,10"/>
+                            Margin="0,0,240,10"/>
                     <Button Content="Versions"
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,115,10"/>
+                            Margin="0,0,125,10"/>
                     <Button Content="Remove" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
                             Margin="0,0,10,10" 
-                            Width="100"/>
+                            Width="110"/>
                 </Grid>
 
             </TabItem>
@@ -303,49 +302,49 @@
                     <TabItem Header="Server Settings">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                              Margin="10,10,10,47">
+                                      Margin="10,10,10,47">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Setting"/>
                                     <DataGridTextColumn Header="Value"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Add" 
-                            Width="100" 
-                            VerticalAlignment="Bottom" 
-                            HorizontalAlignment="Right" 
-                            Margin="0,0,325,10"/>
+                                    Width="110" 
+                                    VerticalAlignment="Bottom" 
+                                    HorizontalAlignment="Right" 
+                                    Margin="0,0,125,10"/>
                             <Button Content="Edit"
-                            Width="100" 
-                            HorizontalAlignment="Right" 
-                            VerticalAlignment="Bottom" 
-                            Margin="0,0,220,10"/>
+                                    Width="110" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Whitelist">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                              Margin="10,10,10,47">
+                                      Margin="10,10,10,47">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name"/>
                                     <DataGridTextColumn Header="UUID"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove" 
-                            Width="100" 
-                            VerticalAlignment="Bottom" 
-                            HorizontalAlignment="Right" 
-                            Margin="0,0,325,10"/>
+                                    Width="110" 
+                                    VerticalAlignment="Bottom" 
+                                    HorizontalAlignment="Right" 
+                                    Margin="0,0,125,10"/>
                             <Button Content="Add"
-                            Width="100" 
-                            HorizontalAlignment="Right" 
-                            VerticalAlignment="Bottom" 
-                            Margin="0,0,220,10"/>
+                                    Width="110" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom" 
+                                    Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Operator">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                              Margin="10,10,10,47">
+                                      Margin="10,10,10,47">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name"/>
                                     <DataGridTextColumn Header="UUID"/>
@@ -353,26 +352,26 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Refresh"
-                                    Width="100" 
+                                    Width="110" 
                                     VerticalAlignment="Bottom" 
                                     HorizontalAlignment="Right" 
-                                    Margin="0,0,325,10"/>
+                                    Margin="0,0,240,10"/>
                             <Button Content="Remove"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,220,10"/>
+                                    Margin="0,0,125,10"/>
                             <Button Content="Add"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,115,10"/>
+                                    Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Banned Players">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                              Margin="10,10,10,47">
+                                      Margin="10,10,10,47">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name"/>
                                     <DataGridTextColumn Header="UUID"/>
@@ -382,21 +381,21 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,220,10"/>
+                                    Margin="0,0,125,10"/>
                             <Button Content="Add"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,115,10"/>
+                                    Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Banned IPs">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                              Margin="10,10,10,47">
+                                      Margin="10,10,10,47">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="IP"/>
                                     <DataGridTextColumn Header="Created"/>
@@ -405,15 +404,15 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,220,10"/>
+                                    Margin="0,0,125,10"/>
                             <Button Content="Add"
-                                    Width="100" 
+                                    Width="110" 
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Bottom" 
-                                    Margin="0,0,115,10"/>
+                                    Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Config Editor">
@@ -433,29 +432,43 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Execute" 
-                            Width="100" 
+                            Width="110" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Right" 
-                            Margin="0,0,325,10"/>
+                            Margin="0,0,355,10"/>
                     <Button Content="Add..."
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,220,10"/>
+                            Margin="0,0,240,10"/>
                     <Button Content="Edit..."
-                            Width="100" 
+                            Width="110" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,115,10"/>
+                            Margin="0,0,125,10"/>
                     <Button Content="Remove" 
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Bottom" 
-                            Margin="0,0,10,10" Width="100"/>
+                            Margin="0,0,10,10" Width="110"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Settings">
+                <TabControl>
+                    <TabItem Header="Console">
 
+                    </TabItem>
+                    <TabItem Header="Notifications">
+
+                    </TabItem>
+                    <TabItem Header="Various">
+
+                    </TabItem>
+                    <TabItem Header="Credits">
+
+                    </TabItem>
+                </TabControl>
             </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
