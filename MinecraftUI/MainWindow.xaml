@@ -28,7 +28,7 @@
                                       HorizontalAlignment="Left" 
                                       Width="146">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Players"/>
+                                    <DataGridTextColumn Header="Players" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <TextBox x:Name="Console_ConsoleInputText" 
@@ -101,11 +101,11 @@
                 <DataGrid BorderThickness="1,1,1,1" 
                           Margin="10,10,10,10">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name"/>
-                        <DataGridTextColumn Header="Display Name"/>
-                        <DataGridTextColumn Header="IP Address"/>
-                        <DataGridTextColumn Header="Time"/>
-                        <DataGridTextColumn Header="Location"/>
+                        <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                        <DataGridTextColumn Header="Display Name" d:IsHidden="True"/>
+                        <DataGridTextColumn Header="IP Address" d:IsHidden="True"/>
+                        <DataGridTextColumn Header="Time" d:IsHidden="True"/>
+                        <DataGridTextColumn Header="Location" d:IsHidden="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -148,7 +148,8 @@
                             </ComboBox>
                             <ComboBox Margin="141,40,10,0" 
                                       VerticalAlignment="Top" 
-                                      Height="25" SelectionChanged="ComboBox_SelectionChanged"/>
+                                      Height="25"
+                                      Name="Starter_JavaComboBox"/>
                             <Label Content="Server Type:" 
                                    HorizontalAlignment="Left" 
                                    Margin="57,17,0,0" 
@@ -198,17 +199,32 @@
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Server Details" 
-                              Margin="0,10,10,0" Height="346" VerticalAlignment="Top" HorizontalAlignment="Right" Width="360">
+                              Margin="0,10,10,0" Height="346" 
+                              VerticalAlignment="Top" 
+                              HorizontalAlignment="Right" 
+                              Width="360">
                         <Grid>
-                            <Button x:Name="Download_Latest_Build" Content="Download Latest Build" Margin="10,180,10,0" VerticalAlignment="Top" Click="Button_Click"/>
-                            <Button x:Name="Download_Latest_Snapshot_Build" Content="Download Latest Snapshot Build" Margin="10,217,10,0" VerticalAlignment="Top"/>
+                            <Button x:Name="Download_Latest_Build" 
+                                    Content="Download Latest Build" 
+                                    Margin="10,180,10,0" 
+                                    VerticalAlignment="Top" 
+                                    Click="Button_Click"/>
+                            <Button x:Name="Download_Latest_Snapshot_Build" 
+                                    Content="Download Latest Snapshot Build" 
+                                    Margin="10,217,10,0" 
+                                    VerticalAlignment="Top"/>
                             <Image x:Name="Starter_ServerTypeImage" 
                                    Margin="10,10,0,0" 
                                    Width="150" 
                                    HorizontalAlignment="Left" 
                                    Height="150" 
-                                   VerticalAlignment="Top"/>
-                            <ProgressBar x:Name="progressBar" Margin="10,254,10,0" RenderTransformOrigin="0.5,0.5" Height="13" VerticalAlignment="Top">
+                                   VerticalAlignment="Top" 
+                                   Stretch="UniformToFill"/>
+                            <ProgressBar x:Name="progressBar" 
+                                         Margin="10,273,10,0" 
+                                         RenderTransformOrigin="0.5,0.5" 
+                                         Height="13" 
+                                         VerticalAlignment="Top">
                                 <ProgressBar.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="1"/>
@@ -218,6 +234,8 @@
                                     </TransformGroup>
                                 </ProgressBar.RenderTransform>
                             </ProgressBar>
+                            <Label x:Name="Starter_Download_Status_Label" Content="Status:" Margin="10,251,286,23"/>
+                            <Label x:Name="Starter_Download_Content_Label" Margin="61,251,10,23"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -226,10 +244,10 @@
                 <Grid>
                     <DataGrid BorderThickness="1,1,1,1" Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID"/>
-                            <DataGridTextColumn Header="Type"/>
-                            <DataGridTextColumn Header="Time"/>
-                            <DataGridTextColumn Header="Message"/>
+                            <DataGridTextColumn Header="ID" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Type" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Time" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Message" d:IsHidden="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Lookup" 
@@ -249,12 +267,12 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"/>
-                            <DataGridTextColumn Header="Trigger"/>
-                            <DataGridTextColumn Header="Trigger Settings"/>
-                            <DataGridTextColumn Header="Action"/>
-                            <DataGridTextColumn Header="Action Settings"/>
-                            <DataGridTextColumn Header="Enabled"/>
+                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Trigger" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Trigger Settings" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Action" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Action Settings" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Enabled" d:IsHidden="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Test" 
@@ -283,12 +301,12 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"/>
-                            <DataGridTextColumn Header="Description"/>
-                            <DataGridTextColumn Header="Author(s)"/>
-                            <DataGridTextColumn Header="Version"/>
-                            <DataGridTextColumn Header="Latest Version"/>
-                            <DataGridTextColumn Header="Installed"/>
+                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Description" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Author(s)" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Version" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Latest Version" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Installed" d:IsHidden="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Open Folder" 
@@ -321,8 +339,8 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Setting"/>
-                                    <DataGridTextColumn Header="Value"/>
+                                    <DataGridTextColumn Header="Setting" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Value" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Add" 
@@ -342,8 +360,8 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name"/>
-                                    <DataGridTextColumn Header="UUID"/>
+                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove" 
@@ -363,9 +381,9 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name"/>
-                                    <DataGridTextColumn Header="UUID"/>
-                                    <DataGridTextColumn Header="Level"/>
+                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Level" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Refresh"
@@ -390,11 +408,11 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name"/>
-                                    <DataGridTextColumn Header="UUID"/>
-                                    <DataGridTextColumn Header="Created"/>
-                                    <DataGridTextColumn Header="Source"/>
-                                    <DataGridTextColumn Header="Expires"/>
+                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Created" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Source" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Expires" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
@@ -414,10 +432,10 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="IP"/>
-                                    <DataGridTextColumn Header="Created"/>
-                                    <DataGridTextColumn Header="Source"/>
-                                    <DataGridTextColumn Header="Expires"/>
+                                    <DataGridTextColumn Header="IP" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Created" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Source" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Expires" d:IsHidden="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
@@ -432,9 +450,7 @@
                                     Margin="0,0,10,10"/>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Config Editor">
-
-                    </TabItem>
+                    <TabItem Header="Config Editor"/>
                 </TabControl>
             </TabItem>
             <TabItem Header="Backup">
@@ -442,10 +458,10 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"/>
-                            <DataGridTextColumn Header="Folders"/>
-                            <DataGridTextColumn Header="Destination"/>
-                            <DataGridTextColumn Header="Compression"/>
+                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Folders" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Destination" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Compression" d:IsHidden="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Execute" 
@@ -471,18 +487,10 @@
             </TabItem>
             <TabItem Header="Settings">
                 <TabControl>
-                    <TabItem Header="Console">
-
-                    </TabItem>
-                    <TabItem Header="Notifications">
-
-                    </TabItem>
-                    <TabItem Header="Various">
-
-                    </TabItem>
-                    <TabItem Header="Credits">
-
-                    </TabItem>
+                    <TabItem Header="Console"/>
+                    <TabItem Header="Notifications"/>
+                    <TabItem Header="Various"/>
+                    <TabItem Header="Credits"/>
                 </TabControl>
             </TabItem>
 
