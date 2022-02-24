@@ -28,7 +28,7 @@
                                       HorizontalAlignment="Left" 
                                       Width="146">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Players" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Players" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <TextBox x:Name="Console_ConsoleInputText" 
@@ -101,11 +101,11 @@
                 <DataGrid BorderThickness="1,1,1,1" 
                           Margin="10,10,10,10">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                        <DataGridTextColumn Header="Display Name" d:IsHidden="True"/>
-                        <DataGridTextColumn Header="IP Address" d:IsHidden="True"/>
-                        <DataGridTextColumn Header="Time" d:IsHidden="True"/>
-                        <DataGridTextColumn Header="Location" d:IsHidden="True"/>
+                        <DataGridTextColumn Header="Name" />
+                        <DataGridTextColumn Header="Display Name" />
+                        <DataGridTextColumn Header="IP Address" />
+                        <DataGridTextColumn Header="Time" />
+                        <DataGridTextColumn Header="Location" />
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -244,10 +244,10 @@
                 <Grid>
                     <DataGrid BorderThickness="1,1,1,1" Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Type" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Time" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Message" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="ID" />
+                            <DataGridTextColumn Header="Type" />
+                            <DataGridTextColumn Header="Time" />
+                            <DataGridTextColumn Header="Message" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Lookup" 
@@ -267,12 +267,12 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Trigger" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Trigger Settings" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Action" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Action Settings" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Enabled" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Name" />
+                            <DataGridTextColumn Header="Trigger" />
+                            <DataGridTextColumn Header="Trigger Settings" />
+                            <DataGridTextColumn Header="Action" />
+                            <DataGridTextColumn Header="Action Settings" />
+                            <DataGridTextColumn Header="Enabled" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Test" 
@@ -301,12 +301,12 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Description" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Author(s)" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Version" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Latest Version" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Installed" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Name" />
+                            <DataGridTextColumn Header="Description" />
+                            <DataGridTextColumn Header="Author(s)" />
+                            <DataGridTextColumn Header="Version" />
+                            <DataGridTextColumn Header="Latest Version" />
+                            <DataGridTextColumn Header="Installed" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Open Folder" 
@@ -339,8 +339,8 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Setting" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Value" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Setting" />
+                                    <DataGridTextColumn Header="Value" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Add" 
@@ -360,8 +360,8 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Name" />
+                                    <DataGridTextColumn Header="UUID" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove" 
@@ -381,9 +381,9 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Level" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Name" />
+                                    <DataGridTextColumn Header="UUID" />
+                                    <DataGridTextColumn Header="Level" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Refresh"
@@ -408,11 +408,11 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="UUID" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Created" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Source" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Expires" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="Name" />
+                                    <DataGridTextColumn Header="UUID" />
+                                    <DataGridTextColumn Header="Created" />
+                                    <DataGridTextColumn Header="Source" />
+                                    <DataGridTextColumn Header="Expires" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
@@ -432,10 +432,10 @@
                             <DataGrid BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="IP" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Created" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Source" d:IsHidden="True"/>
-                                    <DataGridTextColumn Header="Expires" d:IsHidden="True"/>
+                                    <DataGridTextColumn Header="IP" />
+                                    <DataGridTextColumn Header="Created" />
+                                    <DataGridTextColumn Header="Source" />
+                                    <DataGridTextColumn Header="Expires" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove"
@@ -458,10 +458,10 @@
                     <DataGrid BorderThickness="1,1,1,1" 
                               Margin="10,10,10,47">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Folders" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Destination" d:IsHidden="True"/>
-                            <DataGridTextColumn Header="Compression" d:IsHidden="True"/>
+                            <DataGridTextColumn Header="Name" />
+                            <DataGridTextColumn Header="Folders" />
+                            <DataGridTextColumn Header="Destination" />
+                            <DataGridTextColumn Header="Compression" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Execute" 
