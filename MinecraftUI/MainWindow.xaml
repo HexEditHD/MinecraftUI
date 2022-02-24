@@ -24,18 +24,20 @@
                 <Grid>
                     <GroupBox Header="Server Management" Margin="10,10,10,190">
                         <Grid>
-                            <DataGrid BorderThickness="1,1,1,1" 
+                            <DataGrid x:Name="Console_PlayerGrid" BorderThickness="1,1,1,1" 
                                       HorizontalAlignment="Left" 
                                       Width="146">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Players"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <TextBox TextWrapping="Wrap" 
+                            <TextBox x:Name="Console_ConsoleInputText" 
+                                     TextWrapping="Wrap" 
                                      Height="22" 
                                      Margin="151,0,0,5" 
                                      VerticalAlignment="Bottom"/>
-                            <RichTextBox Margin="151,0,0,32" 
+                            <RichTextBox x:Name="Console_ConsoleOutputText" 
+                                         Margin="151,0,0,32" 
                                          BorderThickness="0,0,0,1" 
                                          IsReadOnly="True">
                                 <FlowDocument>
@@ -50,12 +52,15 @@
                               VerticalAlignment="Bottom" 
                               HorizontalAlignment="Left">
                         <Grid>
-                            <Button Content="Start" 
+                            <Button x:Name="Console_StartBtn" 
+                                    Content="Start" 
                                     VerticalAlignment="Top"/>
-                            <Button Content="Restart" 
+                            <Button x:Name="Console_RestartBtn" 
+                                    Content="Restart" 
                                     HorizontalAlignment="Stretch" 
                                     VerticalAlignment="Center"/>
-                            <Button Content="Run Task" 
+                            <Button x:Name="Console_RunTaskBtn" 
+                                    Content="Run Task" 
                                     HorizontalAlignment="Stretch" 
                                     VerticalAlignment="Bottom"/>
                         </Grid>
@@ -82,7 +87,7 @@
                             <Label Content="Total:" HorizontalAlignment="Left" Margin="21,72,0,0" VerticalAlignment="Top"/>
                             <Label Content="GUI:" HorizontalAlignment="Left" Margin="29,50,0,0" VerticalAlignment="Top"/>
                             <Label Content="Server:" HorizontalAlignment="Left" Margin="14,27,0,0" VerticalAlignment="Top"/>
-                            <Label Content="100%" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top"/>
+                            <Label Content="100%" HorizontalAlignment="Left" Margin="385,72,0,0" VerticalAlignment="Top"/>
                             <Label Content="100%" HorizontalAlignment="Left" Margin="385,50,0,0" VerticalAlignment="Top"/>
                             <Label Content="100%" HorizontalAlignment="Left" Margin="385,27,0,0" VerticalAlignment="Top"/>
                             <Label Content="GUI:" HorizontalAlignment="Left" Margin="294,50,0,0" VerticalAlignment="Top"/>
@@ -108,99 +113,111 @@
                 <Grid>
                     <GroupBox Header="Server" 
                               Height="346" 
-                              VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="615">
+                              VerticalAlignment="Top" Margin="10,10,375,0">
                         <Grid>
-                            <Slider x:Name="Starter_MaxRamSlider" Margin="216,117,10,0" 
+                            <Slider x:Name="Starter_MaxRamSlider" 
+                                    Margin="216,132,10,0" 
                                     VerticalAlignment="Top"/>
-                            <Slider x:Name="Starter_MinRamSlider" Margin="216,94,10,0" 
+                            <Slider x:Name="Starter_MinRamSlider" 
+                                    Margin="216,100,10,0" 
                                     VerticalAlignment="Top"/>
-                            <TextBox x:Name="Starter_JarFileText" Margin="141,65,61,0"
+                            <TextBox x:Name="Starter_JarFileText" 
+                                     Margin="141,70,61,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="25"/>
-                            <TextBox x:Name="Starter_OptionalArgsText" Margin="141,140,10,0"
+                            <TextBox x:Name="Starter_OptionalArgsText" Margin="141,154,10,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" Height="25"/>
                             <Button Content="..." 
-                                    Margin="0,66,10,0" 
+                                    Margin="0,70,10,0" 
                                     VerticalAlignment="Top" 
                                     Height="23" 
                                     HorizontalAlignment="Right" 
                                     Width="46"
                                     x:Name="Starter_JarFileBrowseBtn" Click="Starter_BrowseJarFileBtn_Click"/>
                             <Button x:Name="Starter_LaunchServerBtn" Content="Launch Server" 
-                                    Margin="141,198,10,0" 
+                                    Margin="141,212,10,0" 
                                     Height="32" 
                                     VerticalAlignment="Top"/>
-                            <ComboBox Margin="141,11,10,0" 
+                            <ComboBox x:Name="Starter_ServerTypeCombo" Margin="141,10,10,0" 
                                       VerticalAlignment="Top" 
-                                      Height="22">
+                                      Height="25" SelectionChanged="Starter_ServerTypeCombo_SelectionChanged">
                                 <ComboBoxItem Content="Vanilla"/>
                                 <ComboBoxItem Content="Spigot"/>
                             </ComboBox>
-                            <ComboBox Margin="141,38,10,0" 
+                            <ComboBox Margin="141,40,10,0" 
                                       VerticalAlignment="Top" 
-                                      Height="22"/>
+                                      Height="25" SelectionChanged="ComboBox_SelectionChanged"/>
                             <Label Content="Server Type:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="56,12,0,0" 
+                                   Margin="57,17,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Java Version:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="50,39,0,0" 
+                                   Margin="50,44,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Jar File:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="79,66,0,0" 
+                                   Margin="80,73,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Minimum Ram [MB]:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="13,92,0,0" 
+                                   Margin="14,100,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Maximum Ram [MB]:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="10,115,0,0" 
+                                   Margin="11,128,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Optional Arguments:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="10,141,0,0" 
+                                   Margin="12,157,0,0" 
                                    VerticalAlignment="Top"/>
                             <Label Content="Optional Flags:" 
                                    HorizontalAlignment="Left" 
-                                   Margin="39,168,0,0" 
+                                   Margin="42,185,0,0" 
                                    VerticalAlignment="Top"/>
-                            <TextBox x:Name="Starter_OptionalFlagsText" Margin="141,168,10,0"
+                            <TextBox x:Name="Starter_OptionalFlagsText" 
+                                     Margin="141,182,10,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" Height="25"/>
-                            <TextBox x:Name="Starter_MinRamText" Margin="141,92,0,0"
+                            <TextBox x:Name="Starter_MinRamText" 
+                                     Margin="141,100,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
-                                     Height="22" 
+                                     Height="25" 
                                      HorizontalAlignment="Left" 
-                                     Width="70"/>
-                            <TextBox x:Name="Starter_MaxRamText" Margin="141,114,0,0"
+                                     Width="70" Text="0"/>
+                            <TextBox x:Name="Starter_MaxRamText" Margin="141,128,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
-                                     Height="22" 
+                                     Height="25" 
                                      HorizontalAlignment="Left" 
-                                     Width="70"/>
+                                     Width="70"
+                                     Text="{Binding ElementName=Starter_MaxRamSlider, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N0, Mode=TwoWay}"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Server Details" 
-                              Margin="630,10,10,0" Height="346" VerticalAlignment="Top">
+                              Margin="0,10,10,0" Height="346" VerticalAlignment="Top" HorizontalAlignment="Right" Width="360">
                         <Grid>
-                            <Image Margin="10,10,0,0" 
+                            <Button x:Name="Download_Latest_Build" Content="Download Latest Build" Margin="10,180,10,0" VerticalAlignment="Top" Click="Button_Click"/>
+                            <Button x:Name="Download_Latest_Snapshot_Build" Content="Download Latest Snapshot Build" Margin="10,217,10,0" VerticalAlignment="Top"/>
+                            <Image x:Name="Starter_ServerTypeImage" 
+                                   Margin="10,10,0,0" 
                                    Width="150" 
-                                   HorizontalAlignment="Left" Height="150" VerticalAlignment="Top"/>
-                            <Label Content="Latest Recomended Build:" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top"/>
-                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,37,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Latest Beta Build:" HorizontalAlignment="Left" Margin="171,64,0,0" VerticalAlignment="Top"/>
-                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,91,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Latest Development Build:" HorizontalAlignment="Left" Margin="171,118,0,0" VerticalAlignment="Top"/>
-                            <Label Content="00000" HorizontalAlignment="Left" Margin="171,145,0,0" VerticalAlignment="Top"/>
-                            <Button Content="Download Latest Recomended Build" Margin="10,180,10,0" VerticalAlignment="Top"/>
-                            <Button Content="Download Latest Beta Build" Margin="10,217,10,0" VerticalAlignment="Top"/>
-                            <Button Content="Download Latest Developement Build" Margin="10,254,10,0" VerticalAlignment="Top"/>
+                                   HorizontalAlignment="Left" 
+                                   Height="150" 
+                                   VerticalAlignment="Top"/>
+                            <ProgressBar x:Name="progressBar" Margin="10,254,10,0" RenderTransformOrigin="0.5,0.5" Height="13" VerticalAlignment="Top">
+                                <ProgressBar.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ProgressBar.RenderTransform>
+                            </ProgressBar>
                         </Grid>
                     </GroupBox>
                 </Grid>
