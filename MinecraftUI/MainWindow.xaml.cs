@@ -53,12 +53,11 @@ namespace MinecraftUI
             string ServerPath = "C:\\Users\\Fayez\\OneDrive\\Desktop\\asd";
 
 
-            var startInfo = new ProcessStartInfo("java", "-Xmx" + Starter_MinRamText.Text + "M -Xms1024M -jar " + ServerFile + " nogui")
+            var startInfo = new ProcessStartInfo("java", "-Xmx2048M -Xms1024M -jar " + ServerFile + " nogui")
             {
                 WorkingDirectory = ServerPath
             };
 
-            Console_ConsoleOutputText.Text += "java -Xmx" + Starter_MinRamText.Text + "M -Xms" + Starter_MinRamText.Text + "M -jar " + ServerFile + " nogui";
             startInfo.RedirectStandardInput = startInfo.RedirectStandardOutput = true;
             startInfo.UseShellExecute = false; // Necessary for Standard Stream Redirection
             startInfo.CreateNoWindow = true; // You can do either this or open it with "javaw" instead of "java"
