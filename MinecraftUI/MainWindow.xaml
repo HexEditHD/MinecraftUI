@@ -1,8 +1,9 @@
-﻿<Window x:Class="MinecraftUI.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MinecraftUI.MainWindow"
         mc:Ignorable="d"
         Title="MinecraftUI"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -24,25 +25,24 @@
                 <Grid>
                     <GroupBox Header="Server Management" Margin="10,10,10,190">
                         <Grid>
-                            <DataGrid x:Name="Console_PlayerGrid" BorderThickness="1,1,1,1" 
+                            <DataGrid x:Name="Console_PlayerGrid" 
+                                      BorderThickness="1,1,1,1" 
                                       HorizontalAlignment="Left" 
                                       Width="146">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Players" />
+                                    <DataGridTextColumn Header="Players"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <TextBox x:Name="Console_ConsoleInputText" 
+                            <TextBox Name="Console_ConsoleInputText" 
                                      TextWrapping="Wrap" 
-                                     Height="22" 
+                                     Height="30" 
                                      Margin="151,0,0,5" 
-                                     VerticalAlignment="Bottom"/>
-                            <RichTextBox x:Name="Console_ConsoleOutputText" 
-                                         Margin="151,0,0,32" 
-                                         BorderThickness="0,0,0,1" 
-                                         IsReadOnly="True">
-                                <FlowDocument>
-                                </FlowDocument>
-                            </RichTextBox>
+                                     VerticalAlignment="Bottom"
+                                     KeyDown="Console_ConsoleInputText_KeyDown"/>
+                            <TextBox x:Name="Console_ConsoleOutputText"
+                                     Margin="151,0,0,40"
+                                     TextWrapping="WrapWithOverflow"
+                                     IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Quick Actions" 
@@ -54,15 +54,18 @@
                         <Grid>
                             <Button x:Name="Console_StartBtn" 
                                     Content="Start" 
-                                    VerticalAlignment="Top"/>
+                                    VerticalAlignment="Top" 
+                                    Click="Console_StartBtn_Click"/>
                             <Button x:Name="Console_RestartBtn" 
                                     Content="Restart" 
                                     HorizontalAlignment="Stretch" 
-                                    VerticalAlignment="Center"/>
-                            <Button x:Name="Console_RunTaskBtn" 
-                                    Content="Run Task" 
+                                    VerticalAlignment="Center" 
+                                    Click="Console_RestartBtn_Click"/>
+                            <Button x:Name="Console_StopBtn" 
+                                    Content="Stop" 
                                     HorizontalAlignment="Stretch" 
-                                    VerticalAlignment="Bottom"/>
+                                    VerticalAlignment="Bottom" 
+                                    Click="Console_StopBtn_Click"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Performance"
@@ -76,9 +79,9 @@
                             <ProgressBar Height="10" Margin="431,33,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
                             <ProgressBar Height="10" Margin="168,78,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
                             <ProgressBar Height="10" Margin="168,56,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left"/>
-                            <Label Content="CPU Usage" HorizontalAlignment="Left" Margin="463,10,0,0" VerticalAlignment="Top"/>
+                            <Label Content="CPU Usage" HorizontalAlignment="Left" Margin="431,10,0,0" VerticalAlignment="Top"/>
                             <Label Content="Total:" HorizontalAlignment="Left" Margin="286,72,0,0" VerticalAlignment="Top"/>
-                            <Label Content="RAM Usage" HorizontalAlignment="Left" Margin="198,8,0,0" VerticalAlignment="Top"/>
+                            <Label Content="RAM Usage" HorizontalAlignment="Left" Margin="168,10,0,0" VerticalAlignment="Top"/>
                             <Label Content="00:00:00" HorizontalAlignment="Left" Margin="107,92,0,0" VerticalAlignment="Top"/>
                             <Label Content="Uptime:" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                             <Label Content="16000 (100%)" HorizontalAlignment="Left" Margin="79,72,0,0" VerticalAlignment="Top"/>
@@ -92,7 +95,6 @@
                             <Label Content="100%" HorizontalAlignment="Left" Margin="385,27,0,0" VerticalAlignment="Top"/>
                             <Label Content="GUI:" HorizontalAlignment="Left" Margin="294,50,0,0" VerticalAlignment="Top"/>
                             <Label Content="Server:" HorizontalAlignment="Left" Margin="279,27,0,0" VerticalAlignment="Top"/>
-
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -106,6 +108,7 @@
                         <DataGridTextColumn Header="IP Address" />
                         <DataGridTextColumn Header="Time" />
                         <DataGridTextColumn Header="Location" />
+                        <materialDesign:DataGridTextColumn/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -113,43 +116,40 @@
                 <Grid>
                     <GroupBox Header="Server" 
                               Height="346" 
-                              VerticalAlignment="Top" Margin="10,10,375,0">
+                              VerticalAlignment="Top" Margin="10,10,10,0">
                         <Grid>
                             <Slider x:Name="Starter_MaxRamSlider" 
-                                    Margin="216,132,10,0" 
+                                    Margin="216,139,10,0" 
                                     VerticalAlignment="Top"/>
                             <Slider x:Name="Starter_MinRamSlider" 
-                                    Margin="216,100,10,0" 
+                                    Margin="216,107,10,0" 
                                     VerticalAlignment="Top"/>
                             <TextBox x:Name="Starter_JarFileText" 
                                      Margin="141,70,61,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="25"/>
-                            <TextBox x:Name="Starter_OptionalArgsText" Margin="141,154,10,0"
-                                     TextWrapping="Wrap" 
-                                     VerticalAlignment="Top" Height="25"/>
                             <Button Content="..." 
                                     Margin="0,70,10,0" 
                                     VerticalAlignment="Top" 
                                     Height="23" 
                                     HorizontalAlignment="Right" 
                                     Width="46"
-                                    x:Name="Starter_JarFileBrowseBtn" Click="Starter_BrowseJarFileBtn_Click"/>
-                            <Button x:Name="Starter_LaunchServerBtn" Content="Launch Server" 
-                                    Margin="141,212,10,0" 
+                                    x:Name="Starter_JarFileBrowseBtn"
+                                    Click="Starter_BrowseJarFileBtn_Click"/>
+                            <Button x:Name="Starter_LaunchServerBtn"
+                                    Content="Launch Server"
+                                    Margin="141,170,10,0" 
                                     Height="32" 
                                     VerticalAlignment="Top"/>
-                            <ComboBox x:Name="Starter_ServerTypeCombo" Margin="141,10,10,0" 
+                            <ComboBox x:Name="Starter_ServerTypeCombo" 
+                                      Margin="141,10,10,0" 
                                       VerticalAlignment="Top" 
-                                      Height="25" SelectionChanged="Starter_ServerTypeCombo_SelectionChanged">
+                                      Height="25" 
+                                      SelectionChanged="Starter_ServerTypeCombo_SelectionChanged">
                                 <ComboBoxItem Content="Vanilla"/>
                                 <ComboBoxItem Content="Spigot"/>
                             </ComboBox>
-                            <ComboBox Margin="141,40,10,0" 
-                                      VerticalAlignment="Top" 
-                                      Height="25"
-                                      Name="Starter_JavaComboBox"/>
                             <Label Content="Server Type:" 
                                    HorizontalAlignment="Left" 
                                    Margin="57,17,0,0" 
@@ -170,79 +170,37 @@
                                    HorizontalAlignment="Left" 
                                    Margin="11,128,0,0" 
                                    VerticalAlignment="Top"/>
-                            <Label Content="Optional Arguments:" 
-                                   HorizontalAlignment="Left" 
-                                   Margin="12,157,0,0" 
-                                   VerticalAlignment="Top"/>
-                            <Label Content="Optional Flags:" 
-                                   HorizontalAlignment="Left" 
-                                   Margin="42,185,0,0" 
-                                   VerticalAlignment="Top"/>
-                            <TextBox x:Name="Starter_OptionalFlagsText" 
-                                     Margin="141,182,10,0"
-                                     TextWrapping="Wrap" 
-                                     VerticalAlignment="Top" Height="25"/>
-                            <TextBox x:Name="Starter_MinRamText" 
+                            <TextBox Name="Starter_MinRamText" 
                                      Margin="141,100,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="25" 
                                      HorizontalAlignment="Left" 
-                                     Width="70" Text="0"/>
-                            <TextBox x:Name="Starter_MaxRamText" Margin="141,128,0,0"
+                                     Width="70"
+                                     PreviewTextInput="PreviewTextInput"
+                                     Text="{Binding Value, ElementName=Starter_MinRamSlider, Mode=TwoWay, StringFormat=N0, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Name="Starter_MaxRamText" 
+                                     Margin="141,128,0,0"
                                      TextWrapping="Wrap" 
                                      VerticalAlignment="Top" 
                                      Height="25" 
                                      HorizontalAlignment="Left" 
                                      Width="70"
-                                     Text="{Binding ElementName=Starter_MaxRamSlider, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N0, Mode=TwoWay}"/>
-                        </Grid>
-                    </GroupBox>
-                    <GroupBox Header="Server Details" 
-                              Margin="0,10,10,0" Height="346" 
-                              VerticalAlignment="Top" 
-                              HorizontalAlignment="Right" 
-                              Width="360">
-                        <Grid>
-                            <Button x:Name="Download_Latest_Build" 
-                                    Content="Download Latest Build" 
-                                    Margin="10,180,10,0" 
-                                    VerticalAlignment="Top" 
-                                    Click="Button_Click"/>
-                            <Button x:Name="Download_Latest_Snapshot_Build" 
-                                    Content="Download Latest Snapshot Build" 
-                                    Margin="10,217,10,0" 
-                                    VerticalAlignment="Top"/>
-                            <Image x:Name="Starter_ServerTypeImage" 
-                                   Margin="10,10,0,0" 
-                                   Width="150" 
-                                   HorizontalAlignment="Left" 
-                                   Height="150" 
+                                     PreviewTextInput="PreviewTextInput" Text="1024"/>
+                            <Label x:Name="Starter_IsJavaInstalled" 
+                                   HorizontalAlignment="Left"
+                                   Margin="141,44,0,0"
                                    VerticalAlignment="Top" 
-                                   Stretch="UniformToFill"/>
-                            <ProgressBar x:Name="progressBar" 
-                                         Margin="10,273,10,0" 
-                                         RenderTransformOrigin="0.5,0.5" 
-                                         Height="13" 
-                                         VerticalAlignment="Top">
-                                <ProgressBar.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleY="1"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ProgressBar.RenderTransform>
-                            </ProgressBar>
-                            <Label x:Name="Starter_Download_Status_Label" Content="Status:" Margin="10,251,286,23"/>
-                            <Label x:Name="Starter_Download_Content_Label" Margin="61,251,10,23"/>
+                                   Height="22" 
+                                   Width="155"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Issues">
                 <Grid>
-                    <DataGrid BorderThickness="1,1,1,1" Margin="10,10,10,47">
+                    <DataGrid BorderThickness="1,1,1,1" 
+                              Margin="10,10,10,47">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" />
                             <DataGridTextColumn Header="Type" />
@@ -493,7 +451,6 @@
                     <TabItem Header="Credits"/>
                 </TabControl>
             </TabItem>
-
         </TabControl>
     </Grid>
 </Window>
