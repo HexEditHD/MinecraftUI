@@ -10,6 +10,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace MinecraftUI
 {
@@ -24,6 +26,13 @@ namespace MinecraftUI
         {
             InitializeComponent();
 
+            QueryRam();
+            LoadConsole();
+
+        }
+
+        private void QueryRam()
+        {
             ObjectQuery objectQuery = new("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher managementObjectSearcher = new(objectQuery);
             ManagementObjectCollection managementObjectCollection = managementObjectSearcher.Get();
@@ -32,6 +41,8 @@ namespace MinecraftUI
             {
                 Int64 totalRamMB = Convert.ToInt64(managementObject["TotalVisibleMemorySize"]) / 1024;
 
+                Starter_MinRamText.Text = "1024";
+                Starter_MaxRamText.Text = "2048";
                 Starter_MinRamSlider.Minimum = 0;
                 Starter_MaxRamSlider.Minimum = 0;
                 Starter_MinRamSlider.Maximum = totalRamMB;
@@ -46,11 +57,13 @@ namespace MinecraftUI
             {
                 Starter_MaxRamText.Text = "0";
             }
+        }
 
-
+        private void LoadConsole()
+        {
             // If the values are already there then just load them.
             string ServerFile = "server.jar";
-            string ServerPath = "C:\\Users\\Fayez\\OneDrive\\Desktop\\asd";
+            string ServerPath = "";
 
 
             var startInfo = new ProcessStartInfo("java", "-Xmx2048M -Xms1024M -jar " + ServerFile + " nogui")
@@ -84,29 +97,7 @@ namespace MinecraftUI
             dialog.ShowDialog();
             Starter_JarFileText.Text = dialog.FileName;
         }
-        private void Starter_ServerTypeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedValue = ((ComboBoxItem)Starter_ServerTypeCombo.SelectedItem).Content.ToString();
-            Image Starter_ServerTypeImage = new Image();
-            BitmapImage src = new();
-
-
-            if (selectedValue == "Spigot")
-            {
-                src.BeginInit();
-                src.UriSource = new Uri("../../assets/spigot_logo.png", UriKind.RelativeOrAbsolute);
-                src.EndInit();
-                Starter_ServerTypeImage.Source = src;
-            }
-            if (selectedValue == "Vanilla")
-            {
-                src.BeginInit();
-                src.UriSource = new Uri("/assets/vanilla_logo.png", UriKind.Relative);
-                src.EndInit();
-                Starter_ServerTypeImage.Source = src;
-            }
-        }
-
+        
         private void ServerProc_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
             // You have to do this through the Dispatcher because this method is called by a different Thread
@@ -162,13 +153,14 @@ namespace MinecraftUI
 
         private void Console_StopBtn_Click(object sender, RoutedEventArgs e)
         {
-            try { ServerProc.StandardInput.WriteLine("stop");}
+            try { ServerProc.StandardInput.WriteLine("stop"); }
             catch { }
         }
 
         private void Console_RestartBtn_Click(object sender, RoutedEventArgs e)
         {
-            try {
+            try
+            {
                 ServerProc.StandardInput.WriteLine("stop");
                 var x = ServerProc.StartTime; return;
             }

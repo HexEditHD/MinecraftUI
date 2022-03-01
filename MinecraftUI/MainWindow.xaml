@@ -36,7 +36,7 @@
                             <TextBox Name="Console_ConsoleInputText" 
                                      TextWrapping="Wrap" 
                                      Height="30" 
-                                     Margin="151,0,0,5" 
+                                     Margin="151,0,0,0" 
                                      VerticalAlignment="Bottom"
                                      KeyDown="Console_ConsoleInputText_KeyDown"/>
                             <TextBox x:Name="Console_ConsoleOutputText"
@@ -186,7 +186,7 @@
                                      Height="25" 
                                      HorizontalAlignment="Left" 
                                      Width="70"
-                                     PreviewTextInput="PreviewTextInput" Text="1024"/>
+                                     Text="{Binding Value, ElementName=Starter_MaxRamSlider, Mode=TwoWay, StringFormat=N0, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label x:Name="Starter_IsJavaInstalled" 
                                    HorizontalAlignment="Left"
                                    Margin="141,44,0,0"
@@ -295,7 +295,7 @@
                     <TabItem Header="Server Settings">
                         <Grid>
                             <DataGrid BorderThickness="1,1,1,1" 
-                                      Margin="10,10,10,47">
+                                      Margin="10,10,10,47" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Setting" />
                                     <DataGridTextColumn Header="Value" />
@@ -315,11 +315,12 @@
                     </TabItem>
                     <TabItem Header="Whitelist">
                         <Grid>
-                            <DataGrid BorderThickness="1,1,1,1" 
+                            <DataGrid Name="Editor_Whitelist_DG" 
+                                      BorderThickness="1,1,1,1" 
                                       Margin="10,10,10,47">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" />
-                                    <DataGridTextColumn Header="UUID" />
+                                    <materialDesign:DataGridTextColumn Header="Name"/>
+                                    <materialDesign:DataGridTextColumn Header="UUID"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Content="Remove" 
