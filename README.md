@@ -3,7 +3,7 @@ A ravamped version of BukkitGUI2 by bertware (https://github.com/Bertware/bukkit
 
 Below are the tabs inherited by BukkitGUI2 and their functionality.
 
-FULL DISCOLSURE: I'm by no means a programmer in the traditional sense. I'm learning as I go and Googling my way to vitory.
+FULL DISCOLSURE: I'm by no means a programmer in the traditional sense. I'm learning as I go and Googling my way to victory.
 
 ## Console
 ## Players
