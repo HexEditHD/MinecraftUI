@@ -145,8 +145,7 @@
                             <ComboBox x:Name="Starter_ServerTypeCombo" 
                                       Margin="141,10,10,0" 
                                       VerticalAlignment="Top" 
-                                      Height="25" 
-                                      SelectionChanged="Starter_ServerTypeCombo_SelectionChanged">
+                                      Height="25">
                                 <ComboBoxItem Content="Vanilla"/>
                                 <ComboBoxItem Content="Spigot"/>
                             </ComboBox>

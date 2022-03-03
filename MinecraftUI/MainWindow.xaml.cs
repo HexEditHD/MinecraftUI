@@ -6,12 +6,8 @@ using System.IO;
 using System.Management;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace MinecraftUI
 {
@@ -20,15 +16,14 @@ namespace MinecraftUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Process ServerProc;
 
+        Process ServerProc;
         public MainWindow()
         {
             InitializeComponent();
-
-            QueryRam();
             LoadConsole();
-
+            QueryRam();
+            
         }
 
         private void QueryRam()
@@ -66,7 +61,8 @@ namespace MinecraftUI
             string ServerPath = "";
 
 
-            var startInfo = new ProcessStartInfo("java", "-Xmx2048M -Xms1024M -jar " + ServerFile + " nogui")
+            //var startInfo = new ProcessStartInfo("java", "-Xmx" + Starter_MaxRamText.Text + "M - Xms" + Starter_MinRamText.Text + "M -jar " + ServerFile + " nogui")
+            var startInfo = new ProcessStartInfo("java", "-Xmx4096M -Xms2048M -jar " + ServerFile +  " nogui")
             {
                 WorkingDirectory = ServerPath
             };
@@ -74,7 +70,7 @@ namespace MinecraftUI
             startInfo.RedirectStandardInput = startInfo.RedirectStandardOutput = true;
             startInfo.UseShellExecute = false; // Necessary for Standard Stream Redirection
             startInfo.CreateNoWindow = true; // You can do either this or open it with "javaw" instead of "java"
-
+            
             ServerProc = new Process
             {
                 StartInfo = startInfo,
