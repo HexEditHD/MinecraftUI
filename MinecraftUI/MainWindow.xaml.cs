@@ -16,7 +16,7 @@ namespace MinecraftUI
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        readonly ProcessStartInfo startInfo = new ();
         Process ServerProc;
         public MainWindow()
         {
@@ -56,27 +56,17 @@ namespace MinecraftUI
 
         private void LoadConsole()
         {
-            // If the values are already there then just load them.
-            string ServerFile = "server.jar";
-            string ServerPath = "";
-
-
-            //var startInfo = new ProcessStartInfo("java", "-Xmx" + Starter_MaxRamText.Text + "M - Xms" + Starter_MinRamText.Text + "M -jar " + ServerFile + " nogui")
-            var startInfo = new ProcessStartInfo("java", "-Xmx4096M -Xms2048M -jar " + ServerFile +  " nogui")
-            {
-                WorkingDirectory = ServerPath
-            };
-
-            startInfo.RedirectStandardInput = startInfo.RedirectStandardOutput = true;
-            startInfo.UseShellExecute = false; // Necessary for Standard Stream Redirection
-            startInfo.CreateNoWindow = true; // You can do either this or open it with "javaw" instead of "java"
+            startInfo.RedirectStandardInput = true;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
             
             ServerProc = new Process
             {
                 StartInfo = startInfo,
                 EnableRaisingEvents = true
             };
-            ServerProc.OutputDataReceived += new DataReceivedEventHandler(ServerProc_ErrorDataReceived);
+            ServerProc.OutputDataReceived += new DataReceivedEventHandler(ServerProc_OutputDataReceived);
             ServerProc.Exited += new EventHandler(ServerProc_Exited);
         }
 
@@ -94,7 +84,7 @@ namespace MinecraftUI
             Starter_JarFileText.Text = dialog.FileName;
         }
         
-        private void ServerProc_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        private void ServerProc_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             // You have to do this through the Dispatcher because this method is called by a different Thread
             Dispatcher.Invoke(new Action(() =>
@@ -141,6 +131,9 @@ namespace MinecraftUI
             // ServerProc.StartTime and the method wont return ;-)
             try { var x = ServerProc.StartTime; return; }
             catch { }
+
+            startInfo.FileName = "java";
+            startInfo.Arguments = "-Xmx4096M -Xms1024M -jar " + Starter_JarFileText.Text + " nogui";
 
             Console_ConsoleOutputText.Text = "";
             ServerProc.Start();
