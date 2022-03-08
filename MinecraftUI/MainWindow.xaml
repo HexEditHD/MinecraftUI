@@ -39,10 +39,7 @@
                                      Margin="151,0,0,0" 
                                      VerticalAlignment="Bottom"
                                      KeyDown="Console_ConsoleInputText_KeyDown"/>
-                            <TextBox x:Name="Console_ConsoleOutputText"
-                                     Margin="151,0,0,40"
-                                     TextWrapping="WrapWithOverflow"
-                                     IsReadOnly="True"/>
+                            <RichTextBox x:Name="Console_ConsoleOutputText" Margin="151,0,0,35" ScrollViewer.CanContentScroll="True" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Quick Actions" 
@@ -146,8 +143,8 @@
                                       Margin="141,10,10,0" 
                                       VerticalAlignment="Top" 
                                       Height="25">
-                                <ComboBoxItem Content="Vanilla"/>
-                                <ComboBoxItem Content="Spigot"/>
+                                <ComboBoxItem Content="Minecraft Server"/>
+                                <ComboBoxItem Content="BuildTools"/>
                             </ComboBox>
                             <Label Content="Server Type:" 
                                    HorizontalAlignment="Left" 

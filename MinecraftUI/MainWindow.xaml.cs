@@ -56,11 +56,11 @@ namespace MinecraftUI
 
         private void LoadConsole()
         {
+            startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardInput = true;
             startInfo.RedirectStandardOutput = true;
             startInfo.UseShellExecute = false;
-            startInfo.CreateNoWindow = true;
-            
+
             ServerProc = new Process
             {
                 StartInfo = startInfo,
@@ -83,21 +83,19 @@ namespace MinecraftUI
             dialog.ShowDialog();
             Starter_JarFileText.Text = dialog.FileName;
         }
-        
+
         private void ServerProc_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            // You have to do this through the Dispatcher because this method is called by a different Thread
             Dispatcher.Invoke(new Action(() =>
             {
-                Console_ConsoleOutputText.Text += e.Data + "\r\n";
+                Console_ConsoleOutputText.Focus();
+                Console_ConsoleOutputText.AppendText(e.Data + "\r");
                 Console_ConsoleInputText.ScrollToEnd();
             }));
         }
 
         private void ServerProc_Exited(object sender, EventArgs e)
         {
-            // The order of these 2 lines is very important, reversing them will cause an exception
-            // and you wont be able to read from the stream when you start the Process again !
             ServerProc.CancelOutputRead();
             ServerProc.Close();
         }
@@ -117,7 +115,7 @@ namespace MinecraftUI
                 ServerProc.WaitForExit(10000);
                 if (!ServerProc.HasExited)
                 {
-                    Console_ConsoleOutputText.Text += "ERROR: The Server doesn't want to Stop !\r\n";
+                    Console_ConsoleOutputText.AppendText("ERROR: The Server doesn't want to Stop !");
                     e.Cancel = true;
                 }
             }
@@ -132,12 +130,26 @@ namespace MinecraftUI
             try { var x = ServerProc.StartTime; return; }
             catch { }
 
-            startInfo.FileName = "java";
-            startInfo.Arguments = "-Xmx4096M -Xms1024M -jar " + Starter_JarFileText.Text + " nogui";
+           
+            if (Starter_ServerTypeCombo.Text == "Minecraft Server")
+            {
+                startInfo.FileName = "java";
+                startInfo.Arguments = "-Xmx4096M -Xms1024M -jar " + Starter_JarFileText.Text + " nogui";
+                Console_ConsoleOutputText.SelectAll();
+                Console_ConsoleOutputText.Selection.Text = "";
+                ServerProc.Start();
+                ServerProc.BeginOutputReadLine();
 
-            Console_ConsoleOutputText.Text = "";
-            ServerProc.Start();
-            ServerProc.BeginOutputReadLine();
+            }
+            if (Starter_ServerTypeCombo.Text == "BuildTools")
+            {
+                Process buildToolsProcess = new();
+                buildToolsProcess.StartInfo.FileName = "cmd";
+                buildToolsProcess.StartInfo.Arguments = "/C java -jar " + Starter_JarFileText.Text + " --rev latest";
+                buildToolsProcess.StartInfo.CreateNoWindow = false;
+                buildToolsProcess.Start();
+                buildToolsProcess.WaitForExitAsync();
+            }
         }
 
         private void Console_StopBtn_Click(object sender, RoutedEventArgs e)
@@ -155,7 +167,8 @@ namespace MinecraftUI
             }
             catch { }
 
-            Console_ConsoleOutputText.Text = "";
+            Console_ConsoleOutputText.SelectAll();
+            Console_ConsoleOutputText.Selection.Text = "";
             ServerProc.Start();
             ServerProc.BeginOutputReadLine();
 
